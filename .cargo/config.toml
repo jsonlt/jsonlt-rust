@@ -1,0 +1,19 @@
+[build]
+# Enable all warnings
+rustflags = ["-D", "warnings"]
+
+[target.wasm32-unknown-unknown]
+runner = "wasm-bindgen-test-runner"
+
+[alias]
+# Convenience aliases
+b = "build"
+c = "check"
+t = "test"
+r = "run"
+rr = "run --release"
+br = "build --release"
+
+# WASM builds
+wasm = "build --target wasm32-unknown-unknown"
+wasm-release = "build --target wasm32-unknown-unknown --release"

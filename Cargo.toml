@@ -1,0 +1,52 @@
+[package]
+name = "jsonlt"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.70"
+description = "A library for using a JSON Lines (JSONL) file as a lightweight database."
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+keywords = ["json", "jsonl", "jsonlines", "database", "storage"]
+categories = ["data-structures", "database-implementations", "encoding"]
+repository = "https://github.com/jsonlt/jsonlt-rust"
+homepage = "https://jsonlt.org"
+documentation = "https://docs.rs/jsonlt"
+
+[features]
+default = ["serde"]
+full = ["serde", "async", "derive", "wasm"]
+serde = ["dep:serde", "dep:serde_json"]
+async = ["dep:tokio"]
+derive = ["dep:thiserror"]
+wasm = ["dep:wasm-bindgen", "dep:js-sys"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"], optional = true }
+serde_json = { version = "1.0", optional = true }
+thiserror = { version = "2.0", optional = true }
+tokio = { version = "1.0", features = ["fs", "io-util"], optional = true }
+wasm-bindgen = { version = "0.2", optional = true }
+js-sys = { version = "0.3", optional = true }
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+proptest = "1.5"
+tokio = { version = "1.0", features = ["full", "test-util"] }
+wasm-bindgen-test = "0.3"
+
+[[bench]]
+name = "bench_main"
+harness = false
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+nursery = { level = "warn", priority = -1 }
+cargo = { level = "warn", priority = -1 }
