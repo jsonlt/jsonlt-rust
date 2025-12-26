@@ -78,7 +78,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        rust: ["1.71", stable, beta, nightly]
+        rust: ["1.74", stable, beta, nightly]
 
     steps:
       - name: Checkout code
@@ -124,9 +124,13 @@ jobs:
 
       - name: Build WASM
         run: cargo build --target wasm32-unknown-unknown --features wasm
+        env:
+          RUSTFLAGS: '-D warnings --cfg getrandom_backend="wasm_js"'
 
       - name: Run WASM tests
         run: wasm-pack test --headless --chrome --features wasm
+        env:
+          RUSTFLAGS: '-D warnings --cfg getrandom_backend="wasm_js"'
 
   coverage:
     name: Coverage
