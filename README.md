@@ -6,7 +6,7 @@
 <!-- vale off -->
 [![CI](https://github.com/jsonlt/jsonlt-rust/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/jsonlt/jsonlt-rust/actions/workflows/ci.yml)
 [![Codecov](https://codecov.io/gh/jsonlt/jsonlt-rust/branch/main/graph/badge.svg)](https://codecov.io/gh/jsonlt/jsonlt-rust)
-[![Rust 1.80+](https://img.shields.io/badge/rust-1.80+-blue.svg)](https://www.rust-lang.org/)
+[![Rust 1.82+](https://img.shields.io/badge/rust-1.82+-blue.svg)](https://www.rust-lang.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 <!-- vale on -->
 
