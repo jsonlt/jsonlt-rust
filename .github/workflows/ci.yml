@@ -78,7 +78,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        rust: ["1.74", stable, beta, nightly]
+        rust: ["1.80", stable, beta, nightly]
 
     steps:
       - name: Checkout code
